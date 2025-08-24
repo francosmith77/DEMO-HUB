@@ -1,48 +1,165 @@
-<!-- ============ SECCIÓN: EL PROBLEMA (HUB) ============ -->
-<section id="por-que-necesitas-web" style="font:16px/1.55 system-ui,Inter,Arial; color:#0f172a; background:#f8fafc; padding:48px 20px;">
-  <div style="max-width:900px; margin:0 auto;">
-    <h2 style="margin:0 0 10px; font-weight:800; font-size: clamp(28px,3.5vw,36px);">
-      Cada día sin una web propia que venda, perdés reservas directas
-    </h2>
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Demos para Hoteles — Hub</title>
+  <meta name="description" content="Tres planes de sitio web para hoteles, hostels y alojamientos: Esencial, Intermedio y Completo. Precio solidario y pago único.">
+  <style>
+    :root{
+      --bg:#0b1220; --fg:#e5e7eb; --muted:#a8b3c4; --muted-2:#94a3b8;
+      --card:rgba(255,255,255,.06); --stroke:rgba(255,255,255,.14);
+      --accent:#22d3ee; --accent2:#10b981; --warn:#f59e0b; --ok:#10b981;
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;background:
+      radial-gradient(1200px 600px at 10% -10%, rgba(34,211,238,.15), transparent 40%),
+      radial-gradient(1000px 600px at 100% 10%, rgba(16,185,129,.12), transparent 35%),
+      var(--bg);
+      color:var(--fg); font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial}
+    a{color:inherit}
+    .wrap{max-width:1120px;margin:0 auto;padding:56px 20px}
+    h1,h2,h3{margin:0 0 10px}
+    h1{font-weight:900;font-size:clamp(28px,4.2vw,44px);line-height:1.15}
+    h2{font-weight:900;font-size:clamp(26px,3.5vw,38px)}
+    h3{font-weight:900;font-size:22px}
+    .lead{color:var(--muted);margin:0 0 22px}
+    .chip{display:inline-block;font-size:12px;font-weight:800;letter-spacing:.3px;padding:6px 10px;border-radius:999px;border:1px solid var(--stroke);background:rgba(255,255,255,.06);color:#cbd5e1}
+    .card{background:var(--card);border:1px solid var(--stroke);border-radius:18px;padding:22px;backdrop-filter:saturate(180%) blur(18px);box-shadow:0 20px 60px rgba(0,0,0,.25)}
+    .hero-note{display:flex;align-items:center;gap:12px;background:#0f172a;color:#e5e7eb;border-radius:12px;padding:14px 16px;margin:18px 0}
+    .hero-note b{color:#fff}
+    ul{margin:10px 0 14px 20px;color:#cbd5e1}
+    li{margin:6px 0}
+    .cta-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
+    .btn{display:inline-block;text-decoration:none;font-weight:800;border-radius:12px;padding:10px 14px;border:1px solid var(--stroke)}
+    .btn.primary{background:linear-gradient(135deg,var(--accent),var(--accent2));color:#001014;border:none}
+    .btn.ghost{background:transparent;color:var(--fg)}
+    .grid{display:grid;gap:18px}
+    @media(min-width:860px){.grid{grid-template-columns:repeat(3,1fr)}}
+    .pro{outline:2px solid rgba(245,158,11,.35);box-shadow:0 0 0 4px rgba(245,158,11,.12),0 30px 80px rgba(245,158,11,.18)}
+    .tag{display:inline-block;font-size:12px;font-weight:700;padding:6px 10px;border-radius:999px;background:var(--warn);color:#231b00;margin-left:8px}
+    .foot{margin-top:16px;font-size:13px;color:var(--muted)}
+    .salto{display:inline-block;margin-left:6px;font-size:12px;font-weight:800;color:#67e8f9}
+    .ok{color:var(--ok)}
+    /* separación suave entre secciones */
+    .divider{height:1px;background:linear-gradient(90deg,transparent,rgba(255,255,255,.15),transparent);margin:0}
+  </style>
+</head>
+<body>
 
-    <p style="margin:0 0 18px; opacity:.85;">
-      La gente decide online. Si no encuentran tu alojamiento con información clara, fotos y un botón de
-      <strong>reservar fácil</strong> (o WhatsApp a mano), se van con otro —o terminan reservando en plataformas como Booking o Expedia que te cobran comisión por cada noche.
-    </p>
-
-    <!-- Dato real (lenguaje simple) -->
-    <div style="display:flex; align-items:center; gap:12px; background:#111827; color:#e5e7eb; border-radius:12px; padding:14px 16px; margin:18px 0;">
-      <div style="font-weight:800; font-size:18px;">Dato real</div>
-      <div style="opacity:.95;">
-        Cuando una página tarda de <strong>1 a 3 segundos</strong> en cargar, aumenta en <strong>32%</strong> la posibilidad de que la persona se vaya sin hacer nada.
-      </div>
-    </div>
-
-    <h3 style="margin:18px 0 10px; font-weight:800; font-size:20px;">Lo que hoy te está costando plata</h3>
-    <ul style="margin:0 0 16px 18px;">
-      <li style="margin:6px 0;">Sin web propia, recibís menos llamadas y mensajes: muchos abandonan la idea de reservar.</li>
-      <li style="margin:6px 0;">Pasos confusos o páginas lentas = gente que se va sin consultar.</li>
-      <li style="margin:6px 0;">Si dependés solo de plataformas de reserva, pagás comisión en cada reserva y <strong>tu margen baja</strong>.</li>
-    </ul>
-
-    <!-- Promesa sin precios -->
-    <div style="background:#ecfdf5; border:1px solid #a7f3d0; color:#065f46; border-radius:12px; padding:16px;">
-      <p style="margin:0;">
-        <strong>¿La solución?</strong> Te armamos una <strong>web propia que realmente convierte</strong>: clara, rápida y con
-        reserva/WhatsApp siempre a la vista. <strong>Precio solidario y pago único.</strong>
+  <!-- =================== SECCIÓN 1: EL PROBLEMA / URGENCIA =================== -->
+  <section id="por-que-necesitas-web">
+    <div class="wrap">
+      <h1>Cada día sin una <strong>web propia que venda</strong>, perdés <strong>reservas directas</strong></h1>
+      <p class="lead">
+        La gente decide online. Si no encuentran tu alojamiento con información clara, fotos y un botón de
+        <strong>reservar fácil</strong> (o <strong>WhatsApp</strong> a mano), se van con otro —o terminan reservando
+        en plataformas como Booking o Expedia que te cobran <strong>comisión</strong> por cada noche.
       </p>
 
-      <!-- CTAs -->
-      <div style="margin-top:12px; display:flex; gap:10px; flex-wrap:wrap;">
-        <a href="https://francosmith77.github.io/DEMO-PLAN-COMPLETO/" style="text-decoration:none; background:#10b981; color:#fff; padding:10px 14px; border-radius:10px; font-weight:700;" target="_blank" rel="noopener">
-          Ver demos
-        </a>
+      <div class="hero-note">
+        <div style="font-weight:800;font-size:18px;">Dato real</div>
+        <div style="opacity:.95">
+          Cuando una página tarda de <strong>1 a 3 segundos</strong> en cargar, aumenta en <strong>32%</strong>
+          la posibilidad de que la persona se vaya sin hacer nada.
+        </div>
+      </div>
 
-        <a href="https://wa.me/5491152610451?text=Hola%2C%20quiero%20ver%20c%C3%B3mo%20mi%20alojamiento%20puede%20recibir%20m%C3%A1s%20reservas%20con%20una%20web" style="text-decoration:none; background:#fff; color:#065f46; border:1px solid #34d399; padding:10px 14px; border-radius:10px; font-weight:700;" target="_blank" rel="noopener">
-          Hablar por WhatsApp
-        </a>
+      <h3>Lo que hoy te está costando plata</h3>
+      <ul>
+        <li>Sin <strong>web propia</strong>, recibís menos llamadas y mensajes: muchas personas abandonan la idea de reservar.</li>
+        <li>Pasos <strong>confusos</strong> o páginas <strong>lentas</strong> = gente que se va sin consultar.</li>
+        <li>Si dependés solo de plataformas de reserva, pagás <strong>comisión</strong> en cada reserva y <strong>tu margen baja</strong>.</li>
+      </ul>
+
+      <div class="card" style="border-color:#a7f3d0;background:rgba(16,185,129,.08);color:#d1fae5">
+        <p style="margin:0;color:#065f46">
+          <strong>¿La solución?</strong> Te armamos una <strong>web propia que realmente convierte</strong>:
+          clara, rápida y con <strong>reserva/WhatsApp siempre a la vista</strong>.
+          <strong>Precio solidario</strong> y <strong>pago único</strong>.
+        </p>
+        <div class="cta-row">
+          <a class="btn primary" href="#planes-demos">Ver planes y demos</a>
+          <a class="btn" href="https://wa.me/5491152610451?text=Hola%2C%20quiero%20hablar%20para%20tener%20mi%20web%20y%20recibir%20m%C3%A1s%20reservas%20directas" target="_blank" rel="noopener">Hablar por WhatsApp</a>
+        </div>
       </div>
     </div>
-  </div>
-</section>
-<!-- ============ /SECCIÓN ============ -->
+  </section>
+
+  <hr class="divider">
+
+  <!-- =================== SECCIÓN 2: PLANES Y BENEFICIOS =================== -->
+  <section id="planes-demos">
+    <div class="wrap">
+      <h2>Elegí tu plan — y empezá a <strong>recibir reservas directas</strong></h2>
+      <p class="lead">Los tres planes están pensados para que tomes una <strong>decisión hoy</strong>. La demo es solo la <strong>guinda del pastel</strong>.</p>
+
+      <div class="grid">
+        <!-- ESENCIAL -->
+        <article class="card">
+          <div class="chip">Plan Esencial</div>
+          <h3>Presencia profesional en <strong>horas</strong> — listo para <strong>WhatsApp</strong></h3>
+          <p class="lead" style="margin-top:4px">Una sola página clara para <strong>salir ya</strong> y que te escriban.</p>
+          <ul>
+            <li><strong>Hero</strong> con tu mejor foto + botón <strong>Reservar</strong>.</li>
+            <li><strong>3 habitaciones</strong> con “desde $…”, amenities y enlace a WhatsApp.</li>
+            <li><strong>Reserva rápida</strong> (fechas/huéspedes) → mensaje armado.</li>
+            <li><strong>Mapa</strong> y <strong>mini-FAQ</strong> para despejar dudas rápidas.</li>
+            <li><strong>Carga veloz</strong> para que nadie abandone.</li>
+          </ul>
+          <div class="foot">Ideal para <strong>cabañas/hosterías</strong> que necesitan empezar <strong>ya</strong>.</div>
+          <div class="cta-row">
+            <a class="btn primary" href="https://francosmith77.github.io/DEMO-PLAN-ESENCIAL/" target="_blank" rel="noopener">Ver demo Esencial</a>
+            <a class="btn ghost" href="https://wa.me/5491152610451?text=Hola%2C%20quiero%20el%20Plan%20Esencial%20para%20mi%20alojamiento" target="_blank" rel="noopener">Elegir este plan</a>
+          </div>
+          <div class="foot">Precio <strong>solidario</strong> y <strong>pago único</strong>.</div>
+        </article>
+
+        <!-- INTERMEDIO -->
+        <article class="card">
+          <div class="chip">Plan Intermedio <span class="salto">+ MÁS DETALLE</span></div>
+          <h3>Mostrá más, <strong>convencé</strong> mejor y recibí más <strong>consultas</strong></h3>
+          <p class="lead" style="margin-top:4px">Página larga con <strong>hero a todo ancho</strong>, ideal para explicar tu propuesta.</p>
+          <ul>
+            <li><strong>Habitaciones detalladas</strong> (3–6) con listas claras.</li>
+            <li><strong>Servicios & amenities</strong> que la gente busca.</li>
+            <li><strong>Galería</strong> (10–15 fotos) + <strong>atracciones</strong> cercanas.</li>
+            <li><strong>Testimonios</strong> y <strong>contacto</strong> (form + WhatsApp).</li>
+            <li>Opcional: <strong>idiomas</strong> y <strong>analítica</strong> básica.</li>
+          </ul>
+          <div class="foot">Para hoteles/hostels que quieren <strong>despejar dudas</strong> y subir la <strong>conversión</strong>.</div>
+          <div class="cta-row">
+            <a class="btn primary" href="https://francosmith77.github.io/DEMO-PLAN-INTERMEDIO/" target="_blank" rel="noopener">Ver demo Intermedio</a>
+            <a class="btn ghost" href="https://wa.me/5491152610451?text=Hola%2C%20quiero%20el%20Plan%20Intermedio%20para%20mi%20alojamiento" target="_blank" rel="noopener">Elegir este plan</a>
+          </div>
+          <div class="foot">Precio <strong>solidario</strong> y <strong>pago único</strong>.</div>
+        </article>
+
+        <!-- COMPLETO (DESTACADO) -->
+        <article class="card pro">
+          <div class="chip">Plan Completo <span class="tag">RECOMENDADO</span></div>
+          <h3>Tu sitio para <strong>vender en serio</strong> — y listo para <strong>escala</strong></h3>
+          <p class="lead" style="margin-top:4px">
+            Sitio multipágina con todo lo que necesita un hotel para convertir <strong>más directo</strong> y depender
+            menos de plataformas con comisión.
+          </p>
+          <ul>
+            <li><strong>Habitaciones</strong> con páginas individuales y <strong>detalle completo</strong> (modales/galería).</li>
+            <li><strong>Ofertas/paquetes</strong>, <strong>políticas</strong>, <strong>atracciones + mapa</strong>.</li>
+            <li><strong>Reserva rápida</strong> por WhatsApp y/o enlace a <strong>motor de reservas</strong> si ya usan uno.</li>
+            <li><strong>SEO on-page</strong> + marcado <strong>Hotel</strong> (visible para Google).</li>
+            <li><strong>Analítica</strong> (eventos), <strong>multilenguaje</strong> y espacio para <strong>blog/noticias</strong>.</li>
+          </ul>
+          <div class="foot"><strong>Además:</strong> opción de <strong>WEB 100% PERSONALIZADA</strong> (diseño a medida, eventos, restaurante, integraciones especiales).</div>
+          <div class="cta-row">
+            <a class="btn primary" href="https://francosmith77.github.io/DEMO-PLAN-COMPLETO/" target="_blank" rel="noopener">Ver demo Completo</a>
+            <a class="btn ghost" href="https://wa.me/5491152610451?text=Hola%2C%20quiero%20el%20Plan%20Completo%20(o%20versi%C3%B3n%20100%25%20personalizada)%20para%20mi%20alojamiento" target="_blank" rel="noopener">Elegir este plan</a>
+          </div>
+          <div class="foot">Precio <strong>solidario</strong> y <strong>pago único</strong>.</div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+</body>
+</html>
