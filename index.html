@@ -1,185 +1,216 @@
-<!doctype html>
-<html lang="es">
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Demos para Hoteles — Hub</title>
-<meta name="description" content="Tres planes de sitio web para hoteles, hostels y alojamientos: Esencial, Intermedio y Completo. Precio solidario y pago único.">
-<style>
-  :root{
-    --bg:#0b1220; --fg:#e5e7eb; --muted:#a8b3c4; --muted2:#94a3b8;
-    --card:rgba(255,255,255,.06); --stroke:rgba(255,255,255,.14);
-    --accent:#22d3ee; --accent2:#10b981; --warn:#f59e0b; --ok:#10b981;
-  }
-  *{box-sizing:border-box}
-  html,body{margin:0;background:
-    radial-gradient(1200px 600px at 10% -10%, rgba(34,211,238,.15), transparent 40%),
-    radial-gradient(1000px 600px at 100% 10%, rgba(16,185,129,.12), transparent 35%),
-    var(--bg);
-    color:var(--fg); font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial}
-  a{color:inherit}
-  .wrap{max-width:1120px;margin:0 auto;padding:56px 20px}
-  h1,h2,h3{margin:0 0 10px}
-  h1{font-weight:900;font-size:clamp(28px,4.2vw,44px);line-height:1.15}
-  h2{font-weight:900;font-size:clamp(26px,3.5vw,38px)}
-  h3{font-weight:900;font-size:22px}
-  .lead{color:var(--muted);margin:0 0 22px}
-  .chip{display:inline-block;font-size:12px;font-weight:800;letter-spacing:.3px;padding:6px 10px;border-radius:999px;border:1px solid var(--stroke);background:rgba(255,255,255,.06);color:#cbd5e1}
-  .card{background:var(--card);border:1px solid var(--stroke);border-radius:18px;padding:22px;backdrop-filter:saturate(180%) blur(18px);box-shadow:0 20px 60px rgba(0,0,0,.25);
-        display:flex;flex-direction:column;min-height:520px}
-  .card-body{flex:1 1 auto}
-  .hero-note{display:flex;align-items:center;gap:12px;background:#0f172a;color:#e5e7eb;border-radius:12px;padding:14px 16px;margin:18px 0}
-  .hero-note b{color:#fff}
-  ul{margin:10px 0 14px 20px;color:#cbd5e1}
-  li{margin:6px 0}
-  .cta-row{margin-top:14px;display:flex;gap:10px;flex-wrap:wrap}
-  .btn{display:inline-block;text-decoration:none;font-weight:800;border-radius:12px;padding:10px 14px;border:1px solid var(--stroke)}
-  .btn.primary{background:linear-gradient(135deg,var(--accent),var(--accent2));color:#001014;border:none}
-  .btn.ghost{background:transparent;color:var(--fg)}
-  .grid{display:grid;gap:18px}
-  @media(min-width:860px){.grid{grid-template-columns:repeat(3,1fr)}}
-  .pro{outline:2px solid rgba(34,211,238,.45);box-shadow:0 0 0 4px rgba(34,211,238,.16),0 30px 80px rgba(34,211,238,.20)}
-  .tag{display:inline-block;font-size:12px;font-weight:700;padding:6px 10px;border-radius:999px;background:var(--accent);color:#001018;margin-left:8px}
-  .foot{margin-top:12px;font-size:13px;color:var(--muted)}
-  .salto{display:inline-block;margin-left:6px;font-size:12px;font-weight:800;color:#67e8f9}
-  .divider{height:1px;background:linear-gradient(90deg,transparent,rgba(255,255,255,.15),transparent);margin:0}
-  /* Caja solución con mayor contraste (nuevo color + texto blanco) */
-  .solution-card{
-    border-radius:14px;padding:16px;border:0;
-    background:linear-gradient(135deg,#0ea5e9 0%, #22d3ee 35%, #10b981 100%);
-    color:#fff; box-shadow:0 12px 40px rgba(0,0,0,.25)
-  }
-  .solution-card .btn{border-color:rgba(255,255,255,.5)}
-  .solution-card .btn.ghost{background:rgba(255,255,255,.12)}
-</style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Reservas directas y menos comisiones | Franco Smith</title>
+  <meta name="description" content="Tres planes claros en ARS para que tu alojamiento reciba más consultas listas para reservar. Solo 3 cupos disponibles esta semana en Iguazú."/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#0b0c0f; --card:#111317; --muted:#9aa3af; --text:#e5e7eb; --brand:#22c55e; --brand-700:#16a34a; --line:#23262d;
+      --chip:#fde68a; --chipText:#78350f; --accent:#60a5fa; --danger:#ef4444; --note:#0b1f14; --noteLine:#134e4a;
+    }
+    html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:Inter,system-ui,Arial,sans-serif;}
+    .wrap{max-width:1100px;margin:0 auto;padding:16px;}
+    header{position:relative;padding:18px 0 0;}
+    .banner{background:#fff7ed;color:#9a3412;border:1px solid #fed7aa;border-radius:12px;padding:10px 14px;font-weight:700;display:flex;gap:8px;align-items:center;justify-content:center}
+    .banner strong{background:var(--chip);color:var(--chipText);padding:2px 8px;border-radius:999px;margin:0 4px}
+
+    .hero{display:grid;gap:18px;grid-template-columns:1fr;align-items:center;margin:18px 0 6px}
+    .h1{font-size:clamp(24px,4.8vw,42px);line-height:1.1;margin:6px 0 0;font-weight:800}
+    .lead{color:var(--muted);font-size:clamp(15px,2.8vw,18px)}
+    .ctaRow{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
+    .btn{display:inline-block;text-decoration:none;border-radius:12px;padding:12px 16px;font-weight:800;text-align:center}
+    .btn--brand{background:var(--brand);color:#0b0f0c}
+    .btn--ghost{border:1px solid #334155;color:#e2e8f0}
+
+    .stat{background:#0a1a2b;border:1px solid #1d4ed8;color:#bfdbfe;border-radius:16px;padding:14px 16px;margin-top:14px}
+    .stat b{color:#93c5fd}
+
+    .section{margin:28px 0}
+    .grid{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));}
+    .card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px}
+    .cardHeader{display:flex;justify-content:space-between;align-items:center;gap:8px}
+    .planTitle{margin:0;font-size:20px;font-weight:800}
+    .chip{background:rgba(96,165,250,.15);color:#93c5fd;border:1px solid rgba(147,197,253,.25);padding:4px 10px;border-radius:999px;font-size:12px;font-weight:700}
+    .chip--hot{background:#fee2e2;color:#991b1b;border-color:#fecaca}
+    .price{font-size:26px;font-weight:800;margin:12px 0 8px}
+    .muted{color:var(--muted)}
+    ul.benef{margin:12px 0 0;padding-left:18px;color:#cbd5e1;line-height:1.55}
+    .card .rowBtn{display:flex;gap:10px;margin-top:14px;flex-wrap:wrap}
+    .ghost{border:1px solid #3f3f46;color:#e5e7eb;text-decoration:none;border-radius:10px;padding:10px 12px;font-weight:800;text-align:center;flex:1}
+    .solid{background:#e5e7eb;color:#0a0a0a;text-decoration:none;border-radius:10px;padding:10px 12px;font-weight:800;text-align:center;flex:1}
+    .solid--dark{background:#101828;color:#fff}
+    .reco{border:2px solid #4ade80;box-shadow:0 0 0 4px rgba(34,197,94,.15)}
+
+    details{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px}
+    details>summary{cursor:pointer;font-weight:800}
+    details p{color:#cbd5e1}
+
+    .stickyBar{position:fixed;inset:auto 0 0 0;background:#0f172a;border-top:1px solid #1f2937;padding:10px 12px;display:flex;gap:10px;justify-content:center;align-items:center;z-index:60}
+    .stickyBar a{display:inline-block;padding:10px 14px;border-radius:10px;font-weight:900;text-decoration:none;}
+    .stickyBar .wapp{background:var(--brand);color:#052e16}
+    .stickyBar .prices{border:1px solid #94a3b8;color:#e2e8f0}
+
+    .pill{display:inline-flex;gap:6px;align-items:center;background:#0b1f14;border:1px solid #134e4a;color:#a7f3d0;padding:6px 10px;border-radius:999px;font-weight:700}
+    .kicker{display:inline-flex;align-items:center;gap:8px;background:#0a1a2b;border:1px solid #1d4ed8;color:#93c5fd;padding:6px 10px;border-radius:999px;font-size:12px;font-weight:800}
+
+    .note{background:var(--note);border:1px solid var(--noteLine);color:#a7f3d0;border-radius:12px;padding:10px 12px;margin-top:10px;font-size:14px}
+
+    @media (min-width:860px){.hero{grid-template-columns:1.2fr .8fr}}
+  </style>
 </head>
 <body>
-
-<!-- =================== SECCIÓN 1: EL PROBLEMA / URGENCIA =================== -->
-<section id="por-que-necesitas-web">
   <div class="wrap">
-    <h1>Cada día sin una <strong>web propia que venda</strong>, perdés <strong>reservas directas</strong></h1>
-    <p class="lead">
-      La gente decide online. Si no encuentran tu alojamiento con información clara, fotos y un botón de
-      <strong>reservar fácil</strong> (o <strong>WhatsApp</strong> a mano), se van con otro —o terminan reservando
-      en plataformas como Booking o Expedia que te cobran <strong>comisión</strong> por cada noche.
-    </p>
+    <!-- Banner de cupos -->
+    <div class="banner" role="status" aria-live="polite">
+      🔔 Solo <strong>3 cupos</strong> de implementación esta semana en Iguazú. Reservá tu lugar ahora.
+    </div>
 
-    <div class="hero-note">
-      <div style="font-weight:800;font-size:18px;">Dato real</div>
-      <div style="opacity:.95">
-        Cuando una página tarda de <strong>1 a 3 segundos</strong> en cargar, aumenta en <strong>32%</strong>
-        la posibilidad de que la persona se vaya sin hacer nada.
+    <!-- HERO con PAS centrado en pérdida de dinero -->
+    <header class="hero" id="inicio">
+      <div>
+        <span class="kicker">PAS · Problema → Agitación → Solución</span>
+        <h1 class="h1">Cada día sin sitio web directo <em>pagás de más</em> en comisiones y perdés reservas.</h1>
+        <p class="lead">
+          <strong>Problema:</strong> Dependencia de OTAs (Booking.com, Airbnb, Expedia, etc.; comisiones 10–25%) y dudas repetidas por falta de info clara.
+          <br/><strong>Agitación:</strong> Ese goteo constante te cuesta miles de dólares al año y tiempo en WhatsApp.
+          <br/><strong>Solución:</strong> Activá hoy un <strong>micro‑sitio</strong> que ordena toda la información y captura <strong>reservas directas</strong>.
+        </p>
+        <div class="stat">
+          <div style="font-weight:800;font-size:18px;line-height:1.3">Dato real para Iguazú*</div>
+          <div style="margin-top:6px">Con <b>10 habitaciones</b>, tarifa promedio local ≈ <b>US$67/noche</b> y ocupación regional ≈ <b>38%</b>, podés estar pagando <b>US$7.000–US$9.700</b> al año en <b>comisiones de OTAs</b> (Booking.com, Airbnb, Expedia, etc.) si la mayoría de tus reservas entra por plataformas.</div>
+          <div class="note">*Cálculo abierto: ADR Iguazú ~US$67 + ocupación Litoral ~38% + comisión promedio de OTAs ~15% y cuota de OTAs 50–70%. Con sitio web, parte de eso puede volverse <b>reserva directa</b>.</div>
+        </div>
+        <div class="ctaRow">
+          <a class="btn btn--brand" href="#planes">Ver planes y precios</a>
+          <a class="btn btn--ghost" href="#faq">Cómo lo calculamos</a>
+          <span class="pill" title="disponibilidad">🟢 3 cupos activos</span>
+        </div>
       </div>
-    </div>
-
-    <h3>Lo que hoy te está costando plata</h3>
-    <ul>
-      <li>Sin <strong>web propia</strong>, recibís menos llamadas y mensajes: muchas personas abandonan la idea de reservar.</li>
-      <li>Pasos <strong>confusos</strong> o páginas <strong>lentas</strong> = gente que se va sin consultar.</li>
-      <li>Si dependés solo de plataformas de reserva, pagás <strong>comisión</strong> en cada reserva y <strong>tu margen baja</strong>.</li>
-    </ul>
-
-    <!-- NUEVO color + texto blanco para máxima visibilidad -->
-    <div class="solution-card">
-      <p style="margin:0;">
-        <strong>¿La solución?</strong> Te armamos una <strong>web propia que realmente convierte</strong>:
-        clara, rápida y con <strong>reserva/WhatsApp siempre a la vista</strong>.
-        <strong>Precio solidario</strong> y <strong>pago único</strong>.
-      </p>
-      <div class="cta-row">
-        <a class="btn primary" href="#planes-demos">Ver planes y demos</a>
-        <a class="btn ghost" href="https://wa.me/5491152610451?text=Hola%2C%20quiero%20hablar%20para%20tener%20mi%20web%20y%20recibir%20m%C3%A1s%20reservas%20directas" target="_blank" rel="noopener">Hablar por WhatsApp</a>
+      <div class="card" aria-label="Resumen de valor">
+        <h3 class="planTitle" style="margin-bottom:8px">Lo que vas a conseguir</h3>
+        <ul class="benef">
+          <li>Consultas más “listas para reservar” (menos ida y vuelta).</li>
+          <li>Botón de WhatsApp fijo con mensaje prellenado.</li>
+          <li>Info clave clara: fotos, mapa, reglas y FAQ.</li>
+          <li>Rápido en celular + opción ES/EN.</li>
+          <li>Entrega express y soporte por WhatsApp.</li>
+        </ul>
       </div>
-    </div>
+    </header>
+
+    <!-- PLANES -->
+    <section class="section" id="planes" aria-labelledby="h2-planes">
+      <h2 id="h2-planes" style="font-size:28px;margin:10px 0 18px;font-weight:900">Planes y precios (ARS)</h2>
+      <div class="grid">
+        <!-- ESENCIAL -->
+        <article class="card" aria-label="Plan Esencial">
+          <div class="cardHeader">
+            <h3 class="planTitle">Plan Esencial</h3>
+            <span class="chip">Entrega rápida</span>
+          </div>
+          <p class="muted" style="margin:8px 0 0">Landing de 1 página, lista para recibir consultas.</p>
+          <p class="price">$120.000 <small class="muted">ARS</small></p>
+          <ul class="benef">
+            <li>Hero + galería (hasta 8 fotos)</li>
+            <li>Botón WhatsApp fijo (mensaje prellenado)</li>
+            <li>Mapa + mini‑FAQ</li>
+            <li>ES/EN + SEO básico</li>
+          </ul>
+          <div class="rowBtn">
+            <a class="ghost" target="_blank" href="https://francosmith77.github.io/DEMO-PLAN-ESENCIAL/" rel="noopener">Ver demo</a>
+            <a class="solid" target="_blank" href="https://wa.me/1152610451?text=Hola%20Franco%2C%20quiero%20el%20Plan%20Esencial%20para%20mi%20alojamiento%20en%20Iguaz%C3%BA.%20Soy%20____." rel="noopener">Elegir plan</a>
+          </div>
+          <p class="muted" style="margin:10px 0 0;font-size:12px">Se paga en ~1–2 noches de ocupación.</p>
+        </article>
+
+        <!-- INTERMEDIO (RECOMENDADO) -->
+        <article class="card reco" aria-label="Plan Intermedio">
+          <div class="cardHeader">
+            <h3 class="planTitle">Plan Intermedio</h3>
+            <span class="chip chip--hot">Recomendado</span>
+          </div>
+          <p class="muted" style="margin:8px 0 0">Página larga con secciones para explicar y convencer.</p>
+          <p class="price">$180.000 <small class="muted">ARS</small></p>
+          <ul class="benef">
+            <li>Secciones: habitaciones/servicios/atracciones</li>
+            <li>Testimonios + contacto (form o WhatsApp)</li>
+            <li>Galería mejorada + ES/EN completo</li>
+            <li>Analítica básica (clic a WhatsApp)</li>
+          </ul>
+          <div class="rowBtn">
+            <a class="ghost" target="_blank" href="https://francosmith77.github.io/DEMO-PLAN-INTERMEDIO/" rel="noopener">Ver demo</a>
+            <a class="solid" target="_blank" href="https://wa.me/1152610451?text=Hola%20Franco%2C%20quiero%20el%20Plan%20Intermedio%20para%20mi%20alojamiento%20en%20Iguaz%C3%BA.%20Soy%20____." rel="noopener">Elegir plan</a>
+          </div>
+          <p class="muted" style="margin:10px 0 0;font-size:12px">Se paga en ~3–4 noches.</p>
+        </article>
+
+        <!-- PERSONALIZADO (sin demo) -->
+        <article class="card" aria-label="Plan Personalizado">
+          <div class="cardHeader">
+            <h3 class="planTitle">Plan Personalizado</h3>
+            <span class="chip">A medida</span>
+          </div>
+          <p class="muted" style="margin:8px 0 0">Sitio multipágina, co‑creado a tu gusto, sin plantilla.</p>
+          <p class="price">$240.000 <small class="muted">ARS</small></p>
+          <ul class="benef">
+            <li>Co‑diseño de identidad ligera (paleta/tipo/iconos)</li>
+            <li>Páginas por habitación + ofertas/paquetes</li>
+            <li>Integraciones a medida (Motor de reservas/MP*)</li>
+            <li>Métricas personalizadas y micro‑animaciones</li>
+          </ul>
+          <div class="rowBtn">
+            <!-- Sin acceso a demo a pedido -->
+            <a class="solid solid--dark" target="_blank" href="https://wa.me/1152610451?text=Hola%20Franco%2C%20quiero%20una%20Propuesta%20del%20Plan%20Personalizado%20para%20mi%20alojamiento%20en%20Iguaz%C3%BA.%20Soy%20____." rel="noopener">Solicitar propuesta</a>
+          </div>
+          <p class="muted" style="margin:10px 0 0;font-size:12px">*Integraciones según alcance definido por WhatsApp.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section" id="faq" aria-labelledby="h2-faq">
+      <h2 id="h2-faq" style="font-size:24px;margin:10px 0 12px;font-weight:900">Cómo lo calculamos · Preguntas rápidas</h2>
+      <details open>
+        <summary>¿Cuánto dinero se pierde sin web propia?</summary>
+        <p>
+          Ejemplo realista para Iguazú: 10 habitaciones x 365 días x 38% ocupación ≈ 1.387 noches/año. Con tarifa media ~US$67, la facturación anual ronda ~US$92.929.
+          Si el 50–70% entra por OTAs (Booking.com, Airbnb, Expedia, etc.) y la comisión promedio es 15%, se pagan ~US$6.9k–US$9.7k/año en comisiones. Una web que capte parte de esas reservas como <strong>directas</strong> reduce ese gasto.
+        </p>
+      </details>
+      <details style="margin-top:10px">
+        <summary>¿Cómo se paga?</summary>
+        <p>50% al inicio y 50% a la entrega. Facturación simple. Precio en ARS.</p>
+      </details>
+      <details style="margin-top:10px">
+        <summary>¿En cuánto tiempo se entrega?</summary>
+        <p>Esencial 3–5 días, Intermedio 7–10 días, Personalizado según alcance. Respondo cambios chicos por WhatsApp.</p>
+      </details>
+      <details style="margin-top:10px">
+        <summary>¿Quién carga fotos y textos?</summary>
+        <p>Trabajo con tus fotos y textos actuales. Si necesitás nuevas piezas o traducciones nativas, lo cotizamos aparte.</p>
+      </details>
+    </section>
+
+    <footer class="section" style="border-top:1px solid var(--line);padding-top:16px;display:flex;gap:10px;flex-wrap:wrap;justify-content:space-between;align-items:center">
+      <p class="muted" style="margin:0">© <span id="y"></span> Franco Smith · Diseñador web · Iguazú</p>
+      <a class="btn btn--brand" href="https://wa.me/1152610451?text=Hola%20Franco%2C%20quiero%20asesoramiento%20para%20mi%20alojamiento%20en%20Iguaz%C3%BA." target="_blank" rel="noopener">Escribirme por WhatsApp</a>
+    </footer>
   </div>
-</section>
 
-<hr class="divider">
-
-<!-- =================== SECCIÓN 2: PLANES Y BENEFICIOS =================== -->
-<section id="planes-demos">
-  <div class="wrap">
-    <h2>Elegí tu plan — y empezá a <strong>recibir reservas directas</strong></h2>
-    <p class="lead">Los tres planes están pensados para que tomes una <strong>decisión hoy</strong>. La demo es solo la <strong>guinda del pastel</strong>.</p>
-
-    <div class="grid">
-
-      <!-- ESENCIAL -->
-      <article class="card">
-        <div class="card-body">
-          <div class="chip">Plan Esencial</div>
-          <h3 style="margin-top:6px">Presencia profesional en <strong>horas</strong> — listo para <strong>WhatsApp</strong></h3>
-          <p class="lead" style="margin-top:4px">Una sola página clara para <strong>salir ya</strong> y que te escriban.</p>
-          <ul>
-            <li><strong>Hero</strong> con tu mejor foto + botón <strong>Reservar</strong>.</li>
-            <li><strong>3 habitaciones</strong> con “desde $…”, amenities y enlace a WhatsApp.</li>
-            <li><strong>Reserva rápida</strong> (fechas/huéspedes) → mensaje armado.</li>
-            <li><strong>Mapa</strong> y <strong>mini-FAQ</strong> para despejar dudas rápidas.</li>
-            <li><strong>Carga veloz</strong> para que nadie abandone.</li>
-          </ul>
-          <div class="foot">Ideal para <strong>cabañas/hosterías</strong> que necesitan empezar <strong>ya</strong>.</div>
-        </div>
-        <!-- CTA ALINEADA ABAJO -->
-        <div class="cta-row">
-          <a class="btn primary" href="https://francosmith77.github.io/DEMO-PLAN-ESENCIAL/" target="_blank" rel="noopener">Ver demo Esencial</a>
-          <a class="btn ghost" href="https://wa.me/5491152610451?text=Hola%2C%20quiero%20el%20Plan%20Esencial%20para%20mi%20alojamiento" target="_blank" rel="noopener">Elegir este plan</a>
-        </div>
-        <div class="foot">Precio <strong>solidario</strong> y <strong>pago único</strong>.</div>
-      </article>
-
-      <!-- INTERMEDIO (RECOMENDADO) -->
-      <article class="card pro">
-        <div class="card-body">
-          <div class="chip">Plan Intermedio <span class="tag">RECOMENDADO</span></div>
-          <h3 style="margin-top:6px">Mostrá más, <strong>convencé</strong> mejor y recibí más <strong>consultas</strong></h3>
-          <p class="lead" style="margin-top:4px">Página larga con <strong>hero a todo ancho</strong>, ideal para explicar tu propuesta.</p>
-          <ul>
-            <li><strong>Habitaciones detalladas</strong> (3–6) con listas claras.</li>
-            <li><strong>Servicios & amenities</strong> que la gente busca.</li>
-            <li><strong>Galería</strong> (10–15 fotos) + <strong>atracciones</strong> cercanas.</li>
-            <li><strong>Testimonios</strong> y <strong>contacto</strong> (form + WhatsApp).</li>
-            <li>Opcional: <strong>idiomas</strong> y <strong>analítica</strong> básica.</li>
-          </ul>
-          <div class="foot">Para hoteles/hostels que quieren <strong>despejar dudas</strong> y subir la <strong>conversión</strong>.</div>
-        </div>
-        <!-- CTA ALINEADA ABAJO -->
-        <div class="cta-row">
-          <a class="btn primary" href="https://francosmith77.github.io/DEMO-PLAN-INTERMEDIO/" target="_blank" rel="noopener">Ver demo Intermedio</a>
-          <a class="btn ghost" href="https://wa.me/5491152610451?text=Hola%2C%20quiero%20el%20Plan%20Intermedio%20para%20mi%20alojamiento" target="_blank" rel="noopener">Elegir este plan</a>
-        </div>
-        <div class="foot">Precio <strong>solidario</strong> y <strong>pago único</strong>.</div>
-      </article>
-
-      <!-- COMPLETO -->
-      <article class="card">
-        <div class="card-body">
-          <div class="chip">Plan Completo</div>
-          <h3 style="margin-top:6px">Tu sitio para <strong>vender en serio</strong> — y listo para <strong>escala</strong></h3>
-          <p class="lead" style="margin-top:4px">
-            Sitio multipágina con todo lo que necesita un hotel para convertir <strong>más directo</strong> y depender
-            menos de plataformas con comisión.
-          </p>
-          <ul>
-            <li><strong>Habitaciones</strong> con páginas individuales y <strong>detalle completo</strong> (modales/galería).</li>
-            <li><strong>Ofertas/paquetes</strong>, <strong>políticas</strong>, <strong>atracciones + mapa</strong>.</li>
-            <li><strong>Reserva rápida</strong> por WhatsApp y/o enlace a <strong>motor de reservas</strong> si ya usan uno.</li>
-            <li><strong>SEO on-page</strong> + marcado <strong>Hotel</strong> (visible para Google).</li>
-            <li><strong>Analítica</strong> (eventos), <strong>multilenguaje</strong> y espacio para <strong>blog/noticias</strong>.</li>
-          </ul>
-          <div class="foot"><strong>Además:</strong> opción de <strong>WEB 100% PERSONALIZADA</strong> (diseño a medida, eventos, restaurante, integraciones especiales).</div>
-        </div>
-        <!-- CTA ALINEADA ABAJO -->
-        <div class="cta-row">
-          <a class="btn primary" href="https://francosmith77.github.io/DEMO-PLAN-COMPLETO/" target="_blank" rel="noopener">Ver demo Completo</a>
-          <a class="btn ghost" href="https://wa.me/5491152610451?text=Hola%2C%20quiero%20el%20Plan%20Completo%20(o%20versi%C3%B3n%20100%25%20personalizada)%20para%20mi%20alojamiento" target="_blank" rel="noopener">Elegir este plan</a>
-        </div>
-        <div class="foot">Precio <strong>solidario</strong> y <strong>pago único</strong>.</div>
-      </article>
-
-    </div>
+  <!-- Sticky WhatsApp bar (móvil & desktop) -->
+  <div class="stickyBar" role="complementary" aria-label="Acciones rápidas">
+    <a class="wapp" target="_blank" rel="noopener" href="https://wa.me/1152610451?text=Hola%20Franco%2C%20quiero%20activar%20mi%20sitio%20para%20reservas%20directas.%20Soy%20____%20de%20____.">Consultar por WhatsApp</a>
+    <a class="prices" href="#planes">Ver precios</a>
   </div>
-</section>
 
+  <script>
+    // Año dinámico
+    document.getElementById('y').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
